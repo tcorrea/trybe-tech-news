@@ -1,6 +1,22 @@
-# Requisito 01
-def fetch(url):
-    """Seu código deve vir aqui"""
+import requests as rq
+import time
+
+
+# Requisito 1
+def fetch(url: str, timeout: int = 3) -> str | None:
+
+    try:
+        response: rq.Response = rq.get(
+            url, headers={"user-agent": "Fake user-agent"}, timeout=timeout
+        )
+        time.sleep(1)
+    except (rq.ReadTimeout, rq.HTTPError):
+        return None
+
+    if response.status_code != 200:
+        return None
+
+    return response.text
 
 
 # Requisito 2
