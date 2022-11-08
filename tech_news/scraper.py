@@ -32,7 +32,20 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_noticia(html_content):
-    """Seu código deve vir aqui"""
+    selector = Selector(html_content)
+    url = selector.css("link[rel='canonical']::attr(href)").get()
+    title = selector.css(".entry-title::text").get()
+    timestamp = selector.css(".meta-date::text").get()
+    writer = selector.css(".author a::text").get()
+    # TODO: pegar comentarios
+    # comments_count = selector.css()
+    summary = selector.css("p::text").get()
+    tags = selector.css(".menu-item-object-post_tag a::text").getall()
+    tags_ = list(set(tags))
+    category = selector.css(
+        ".meta-category .category-style .label::text"
+    ).get()
+    print("\n timestamp", url)
 
 
 # Requisito 5
