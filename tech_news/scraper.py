@@ -4,10 +4,10 @@ import time
 
 
 # Requisito 1
-def fetch(url: str, timeout: int = 3) -> str | None:
+def fetch(url, timeout=3):
 
     try:
-        response: rq.Response = rq.get(
+        response = rq.get(
             url, headers={"user-agent": "Fake user-agent"}, timeout=timeout
         )
         time.sleep(1)
