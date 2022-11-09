@@ -33,19 +33,23 @@ def scrape_next_page_link(html_content):
 # Requisito 4
 def scrape_noticia(html_content):
     selector = Selector(html_content)
-    url = selector.css("link[rel='canonical']::attr(href)").get()
-    title = selector.css(".entry-title::text").get()
-    timestamp = selector.css(".meta-date::text").get()
-    writer = selector.css(".author a::text").get()
-    # TODO: pegar comentarios
-    # comments_count = selector.css()
-    summary = selector.css("p::text").get()
-    tags = selector.css(".menu-item-object-post_tag a::text").getall()
-    tags_ = list(set(tags))
-    category = selector.css(
-        ".meta-category .category-style .label::text"
-    ).get()
-    print("\n timestamp", url)
+    summary = "".join(
+        selector.css(".entry-content > p:nth-of-type(1) *::text").getall()
+    ).strip()
+
+    return {
+        # https://stackoverflow.com/questions/52849274/getting-the-current-url-page-ref-scrapy
+        "url": selector.css("link[rel='canonical']::attr(href)").get(),
+        "title": selector.css(".entry-title::text").get().strip(),
+        "timestamp": selector.css(".meta-date::text").get(),
+        "writer": selector.css(".author a::text").get(),
+        "comments_count": len(selector.css(".comment-list li").getall()),
+        "summary": summary,
+        "tags": selector.css(".post-tags li a::text").getall(),
+        "category": selector.css(
+            ".meta-category .category-style .label::text"
+        ).get(),
+    }
 
 
 # Requisito 5
