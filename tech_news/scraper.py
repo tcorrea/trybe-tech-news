@@ -3,7 +3,7 @@ from parsel import Selector
 import time
 
 # FIX: arrumar import do modulo database
-import tech_news.database as db
+from tech_news.database import create_news, find_news
 
 
 # Requisito 1
@@ -56,7 +56,14 @@ def scrape_noticia(html_content):
 
 
 # Requisito 5
+# def get_tech_news(amount, url="https://blog.betrybe.com/", news_links=[]):
 def get_tech_news(amount):
+    # if len(news_links) >= 0 and len(news_links) < amount:
+    #     content = fetch(url)
+    #     next_page_link = scrape_next_page_link(content)
+    #     news_links.extend(scrape_novidades(content))
+    #     return get_tech_news(amount, next_page_link, news_links)
+
     main_page = fetch("https://blog.betrybe.com/")
     next_page_link = scrape_next_page_link(main_page)
 
@@ -65,7 +72,7 @@ def get_tech_news(amount):
     while len(news_links) < amount:
         next_page_content = fetch(next_page_link)
         next_page_link = scrape_next_page_link(next_page_content)
-        news_links.append(next_page_content)
+        news_links.extend(scrape_novidades(next_page_content))
 
     news = [
         # scraping cada news recebida
@@ -75,6 +82,5 @@ def get_tech_news(amount):
         )
         for single_news in news_links[:amount]
     ]
-    stored_news = db.create_news(news)
-    return stored_news
-    # return news
+    create_news(news)
+    return news
