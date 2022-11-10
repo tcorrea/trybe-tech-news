@@ -66,7 +66,6 @@ def get_tech_news(amount):
     next_page_link = scrape_next_page_link(main_page)
 
     news_links: list = scrape_novidades(main_page)
-
     while len(news_links) < amount:
         next_page_content = fetch(next_page_link)
         next_page_link = scrape_next_page_link(next_page_content)
