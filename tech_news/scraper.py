@@ -1,9 +1,7 @@
 import requests as rq
 from parsel import Selector
 import time
-
-# FIX: arrumar import do modulo database
-from tech_news.database import create_news, find_news
+from tech_news.database import create_news
 
 
 # Requisito 1
