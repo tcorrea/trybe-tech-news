@@ -127,6 +127,7 @@ Legenda:
     ```
 -   Retorno - Uma lista com o título e o link para a notícia:
     ```python
+    >>> search_by_title("Informática")
     [('Informática básica: o que é e quais os 16 conceitos principais', 'https://blog.betrybe.com/tecnologia/informatica-basica/')]
     ```
 
@@ -142,5 +143,6 @@ Legenda:
     ```
 -   Retorno - Uma lista com o título e o link para a notícia:
     ```python
+    >>> search_by_date("2022-11-09")
     [('Informática básica: o que é e quais os 16 conceitos principais', 'https://blog.betrybe.com/tecnologia/informatica-basica/')]
     ```
