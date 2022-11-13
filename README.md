@@ -1,4 +1,4 @@
-# :construction: README customizado em construção ! :construction:
+
 <!-- Olá, Tryber!
 Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
 
@@ -11,3 +11,5 @@ Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua cr
 - quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
 - quais arquivos/pastas foram desenvolvidos pela Trybe.
 -->
+![TRYBE_TECH_NEWS](https://user-images.githubusercontent.com/20843662/201528891-ae8c5cc2-7747-4ba3-9f01-619488a362c7.png)
+
