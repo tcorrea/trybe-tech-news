@@ -50,7 +50,7 @@ Legenda:
 ├── 🔸docker-compose.yml
 ├── 🔸Dockerfile
 ├── 🔸pyproject.toml
-├── 🔸README.md
+├── 🔹README.md
 ├── 🔸requirements.txt
 ├── 🔸setup.cfg
 ├── 🔸setup.py
